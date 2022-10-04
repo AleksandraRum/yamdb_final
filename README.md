@@ -23,14 +23,14 @@ yamdb_final
 
 ## Статус Workflow
 
-![badge](https://github.com/AleksandraRum/yamdb_final/blob/master/.github/workflows/yamdb_workflow.yml/badge.svg)
+![badge](https://github.com/AleksandraRum/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 ## Запуск проекта в контейнере:
 
 1. Клонировать репозиторий:
 
 ```
-https://github.com/AleksandraRum/infra_sp2.git
+https://github.com/AleksandraRum/yamdb_final.git
 ```
 
 2.  Запустить Docker, перейти в папку infra и запустить docker-compose.yaml:
