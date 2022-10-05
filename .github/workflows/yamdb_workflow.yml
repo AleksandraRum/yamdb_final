@@ -54,6 +54,7 @@ jobs:
         
         uses: docker/build-push-action@v2 
         with:
+          context: api_yamdb/
           push: true
           tags: aleksrumiash/infra_web:latest 
   
