@@ -19,18 +19,13 @@ jobs:
 
     - name: Install dependencies
       run: | 
-       
         python -m pip install --upgrade pip 
-
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
-
         pip install -r api_yamdb/requirements.txt
 
     - name: Test with flake8 and django tests
       run: |
-
         python -m flake8
-
         pytest
 
   build_and_push_to_docker_hub:
@@ -56,13 +51,14 @@ jobs:
         with:
           context: api_yamdb/
           push: true
-          tags: aleksrumiash/infra_web:latest 
+          tags: ${{ secrets.DOCKER_USERNAME }}/infra_web:latest 
   
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
     steps:
       - name: executing remote ssh commands to deploy
+        if: github.ref == 'refs/heads/master'
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -74,7 +70,7 @@ jobs:
             sudo docker-compose stop
             sudo docker-compose rm web
             touch .env
-            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
+            echo DB_ENGINE=${{ secrets.DB_ENGINE }} > .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
             echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env

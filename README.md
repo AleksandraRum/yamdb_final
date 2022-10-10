@@ -1,6 +1,11 @@
 # yamdb_final
 yamdb_final
 # Спринт 16. Проект Yamdb
+
+## Статус Workflow
+
+![badge](https://github.com/AleksandraRum/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+
 ## Описание:
 Проект YaMDb собирает отзывы (Review) пользователей на произведения (Titles). Произведения делятся на категории: «Книги», «Фильмы», «Музыка». Список категорий (Category) может быть расширен администратором (например, можно добавить категорию «Изобразительное искусство» или «Ювелирка»).
 Сами произведения в YaMDb не хранятся, здесь нельзя посмотреть фильм или послушать музыку.
@@ -21,10 +26,6 @@ yamdb_final
     Nginx
     docker-compose
 
-## Статус Workflow
-
-![badge](https://github.com/AleksandraRum/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
-
 ## Запуск проекта в контейнере:
 
 1. Клонировать репозиторий:
@@ -37,7 +38,7 @@ https://github.com/AleksandraRum/yamdb_final.git
 
 ```
 cd infra_sp2/infra
-docker-compose up
+docker-compose up -d
 ```
 
 3. Выполнить миграции:
