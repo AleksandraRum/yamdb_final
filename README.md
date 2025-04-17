@@ -38,6 +38,7 @@ https://github.com/AleksandraRum/yamdb_final.git
 
 ```
 cd infra_sp2/infra
+docker-compose build --no-cache
 docker-compose up -d
 ```
 
