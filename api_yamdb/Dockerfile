@@ -12,6 +12,6 @@ COPY . .
 
 RUN python manage.py collectstatic --noinput
 
-RUN python create_superuser.py
+RUN python api_yamdb/create_superuser.py
 
 CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000" ]
