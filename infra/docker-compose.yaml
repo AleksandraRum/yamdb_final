@@ -13,8 +13,9 @@ services:
       - PGTZ=UTC
   web:
     build:
-      context: ../api_yamdb # или путь к папке, где лежит manage.py и settings.py
-      dockerfile: Dockerfile
+      #context: ../api_yamdb # или путь к папке, где лежит manage.py и settings.py
+     # dockerfile: Dockerfile
+    image: aleksandrarum/infra_web:latest
     restart: always
     volumes:
       - static_value:/app/static/
