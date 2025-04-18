@@ -20,8 +20,8 @@ yamdb_final
 
 ## Стек технологий:
 
-    Python 3.7.0
-    Django 2.2.16
+    Python 3.10
+    Django 3.2.20
     DRF 3.12.4
     Nginx
     docker-compose
