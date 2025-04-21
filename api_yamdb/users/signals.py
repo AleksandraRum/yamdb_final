@@ -8,9 +8,9 @@ User = get_user_model()
 
 @receiver(post_migrate)
 def create_superuser(sender, **kwargs):
-    username = os.getenv('DJANGO_SUPERUSER_USERNAME')
-    email = os.getenv('DJANGO_SUPERUSER_EMAIL')
-    password = os.getenv('DJANGO_SUPERUSER_PASSWORD')
+    username = os.getenv('DJANGO_SUPERUSER_USERNAME', 'admin')
+    email = os.getenv('DJANGO_SUPERUSER_EMAIL', 'admin@example.com')
+    password = os.getenv('DJANGO_SUPERUSER_PASSWORD', 'adminadmin')
 
     if username and email and password:
         if not User.objects.filter(username=username).exists():
