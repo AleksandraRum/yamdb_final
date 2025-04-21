@@ -18,4 +18,5 @@ class TestReadme:
             r'\/(actions\/)?workflows\/[-a-zA-Z0-9._+]+\/badge\.svg'
         )
 
-        assert re.search(re_str, readme), 'Проверьте, что добавили бейдж со статусом работы workflow в файл README.md'
+        assert re.search(
+            re_str, readme), 'Проверьте, что добавили бейдж со статусом работы workflow в файл README.md'

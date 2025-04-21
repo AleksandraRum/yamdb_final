@@ -6,6 +6,7 @@ from django.dispatch import receiver
 
 User = get_user_model()
 
+
 @receiver(post_migrate)
 def create_superuser(sender, **kwargs):
     # username = os.getenv('DJANGO_SUPERUSER_USERNAME', 'admin')
@@ -23,7 +24,7 @@ def create_superuser(sender, **kwargs):
                 email=email,
                 password=password
             )
-            print(f"Env superuser username: {username}, email: {email}, password: {password}")
+            print(
+                f"Env superuser username: {username}, email: {email}, password: {password}")
         else:
             print("\nSuperuser already exists.")
-
