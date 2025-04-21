@@ -123,12 +123,16 @@ SIMPLE_JWT = {
 
 AUTH_USER_MODEL = 'users.User'
 
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_BACKEND = os.getenv(
+    'EMAIL_BACKEND',
+    default='django.core.mail.backends.filebased.EmailBackend'
+)
 
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
-EMAIL_BACKEND = os.getenv(
-    'EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+# EMAIL_BACKEND = os.getenv(
+#     'EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = os.getenv('EMAIL_HOST', default='smtp.mail.ru')
 EMAIL_PORT = os.getenv('EMAIL_PORT', default=2525)
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', default='123@123.ru')
