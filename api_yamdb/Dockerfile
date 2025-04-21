@@ -13,6 +13,7 @@ COPY . .
 # RUN python manage.py collectstatic --noinput
 # RUN python manage.py makemigrations --noinput
 # RUN python manage.py migrate --noinput
+COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
 ENV PYTHONPATH=/app
