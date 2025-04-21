@@ -9,9 +9,6 @@ User = get_user_model()
 
 @receiver(post_migrate)
 def create_superuser(sender, **kwargs):
-    # username = os.getenv('DJANGO_SUPERUSER_USERNAME', 'admin')
-    # email = os.getenv('DJANGO_SUPERUSER_EMAIL', 'admin@example.com')
-    # password = os.getenv('DJANGO_SUPERUSER_PASSWORD', 'adminadmin')
     username = os.getenv('DJANGO_SUPERUSER_USERNAME')
     email = os.getenv('DJANGO_SUPERUSER_EMAIL')
     password = os.getenv('DJANGO_SUPERUSER_PASSWORD')
@@ -25,6 +22,10 @@ def create_superuser(sender, **kwargs):
                 password=password
             )
             print(
-                f"Env superuser username: {username}, email: {email}, password: {password}")
+                f"\nEnv superuser\n"
+                f"Username: {username}\n"
+                f"Email: {email}\n"
+                f"Password: {password}"
+            )
         else:
             print("\nSuperuser already exists.")
