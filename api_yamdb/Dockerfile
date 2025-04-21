@@ -15,6 +15,6 @@ RUN python manage.py makemigrations --noinput
 RUN python manage.py migrate --noinput
 
 ENV PYTHONPATH=/app
-RUN python api_yamdb/create_superuser.py
+# RUN python api_yamdb/create_superuser.py
 
 CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000" ]
