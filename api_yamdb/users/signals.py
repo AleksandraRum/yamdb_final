@@ -20,5 +20,7 @@ def create_superuser(sender, **kwargs):
                 email=email,
                 password=password
             )
+            print(f"Env superuser username: {username}, email: {email}, password: {password}")
         else:
             print("\nSuperuser already exists.")
+
