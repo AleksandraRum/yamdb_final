@@ -11,6 +11,8 @@ RUN pip3 install -r requirements.txt --no-cache-dir
 COPY . .
 
 RUN python manage.py collectstatic --noinput
+RUN python manage.py makemigrations --noinput
+RUN python manage.py migrate --noinput
 
 ENV PYTHONPATH=/app
 RUN python api_yamdb/create_superuser.py
