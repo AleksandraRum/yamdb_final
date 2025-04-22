@@ -1,3 +1,4 @@
+import logging
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -13,7 +14,7 @@ from rest_framework_simplejwt.tokens import AccessToken
 from reviews.models import Category, Genre, Review, Title
 from users.models import User
 
-from api_yamdb.settings import EMAIL_HOST_USER
+from api_yamdb.settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 
 from .filters import TitleFilter
 from .mixins import CreateListDestroyViewSet
@@ -67,6 +68,8 @@ def send_confirmation_code_to_user_email(username):
         [email],
         fail_silently=False,
     )
+    logging.warning(f"EMAIL_HOST_USER: {EMAIL_HOST_USER}")
+    logging.warning(f"EMAIL_HOST_PASSWORD: {EMAIL_HOST_PASSWORD}")
 
 
 @permission_classes([AllowAny])
