@@ -54,5 +54,5 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('debug-email/', debug_send_email),
+    path(f'{VERSION_PARAM}/debug-email/', debug_send_email),
 ]
