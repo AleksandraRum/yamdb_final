@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -82,6 +83,9 @@ def debug_send_email(request):
             recipient_list=['alexrumyantceva@gmail.com'],
             fail_silently=False
         )
+        print("DEBUG EMAIL CONFIG:")
+        print("EMAIL_HOST_USER:", settings.EMAIL_HOST_USER)
+        print("EMAIL_HOST:", settings.EMAIL_HOST)
         return Response({'message': 'Письмо отправлено (или попытка была)'})
     except Exception as e:
         return Response({'error': str(e)})
