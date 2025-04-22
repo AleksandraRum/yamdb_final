@@ -137,7 +137,7 @@ EMAIL_HOST = os.getenv('EMAIL_HOST', default='smtp.yandex.ru')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', default=587))
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', default='testSendCode@yandex.ru')
 # EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', default='slxphcdcvcvdhkqg')
-EMAIL_HOST_PASSWORD = 'slxphcdcvcvdhkqg'
+EMAIL_HOST_PASSWORD = 'kzgabvxkndurbnfu'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 # EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'False') == 'True'
