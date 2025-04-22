@@ -1,4 +1,4 @@
-from django.conf import settings
+# from django.conf import settings
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -15,7 +15,7 @@ from rest_framework.decorators import api_view
 from reviews.models import Category, Genre, Review, Title
 from users.models import User
 
-from api_yamdb.settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
+from api_yamdb.settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_HOST, EMAIL_PORT, EMAIL_USE_SSL, EMAIL_USE_TLS
 
 from .filters import TitleFilter
 from .mixins import CreateListDestroyViewSet
