@@ -74,14 +74,17 @@ def send_confirmation_code_to_user_email(username):
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def debug_send_email(request):
-    send_mail(
-        subject='Тестовое письмо',
-        message='Если ты читаешь это — SMTP работает!',
-        from_email=EMAIL_HOST_USER,
-        recipient_list=['alexrumyantceva@gmail.com'],
-        fail_silently=False
-    )
-    return Response({'message': 'Письмо отправлено (или попытка была)'})
+    try:
+        send_mail(
+            subject='Тестовое письмо',
+            message='Если ты читаешь это — SMTP работает!',
+            from_email=EMAIL_HOST_USER,
+            recipient_list=['alexrumyantceva@gmail.com'],
+            fail_silently=False
+        )
+        return Response({'message': 'Письмо отправлено (или попытка была)'})
+    except Exception as e:
+        return Response({'error': str(e)})
 
 @permission_classes([AllowAny])
 class APIUserCreate(APIView):
