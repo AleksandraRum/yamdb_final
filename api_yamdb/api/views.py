@@ -1,4 +1,3 @@
-import logging
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -68,9 +67,8 @@ def send_confirmation_code_to_user_email(username):
         [email],
         fail_silently=False,
     )
-    logging.warning(f"EMAIL_HOST_USER: {EMAIL_HOST_USER}")
-    logging.warning(f"EMAIL_HOST_PASSWORD: {EMAIL_HOST_PASSWORD}")
-
+    print(f"📧 EMAIL_HOST_USER: {EMAIL_HOST_USER}")
+    print(f"🔑 EMAIL_HOST_PASSWORD: {EMAIL_HOST_PASSWORD}")
 
 @permission_classes([AllowAny])
 class APIUserCreate(APIView):
