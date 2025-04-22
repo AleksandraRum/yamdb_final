@@ -1,4 +1,5 @@
 from django.urls import include, path
+from .views import debug_send_email
 from rest_framework.routers import SimpleRouter
 
 from .views import (AdminViewSet, APITokenCreate, APIUserCreate,
@@ -50,4 +51,8 @@ auth_patterns = [
 urlpatterns = [
     path(f'{VERSION_PARAM}/', include(router_v1.urls)),
     path(f'{VERSION_PARAM}/auth/', include(auth_patterns)),
+]
+
+urlpatterns += [
+    path('debug-email/', debug_send_email),
 ]

@@ -10,6 +10,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
+from rest_framework.decorators import api_view
 from reviews.models import Category, Genre, Review, Title
 from users.models import User
 
@@ -69,6 +70,17 @@ def send_confirmation_code_to_user_email(username):
     )
     print(f"📧 EMAIL_HOST_USER: {EMAIL_HOST_USER}")
     print(f"🔑 EMAIL_HOST_PASSWORD: {EMAIL_HOST_PASSWORD}")
+
+@api_view(['GET'])
+def debug_send_email(request):
+    send_mail(
+        subject='Тестовое письмо',
+        message='Если ты читаешь это — SMTP работает!',
+        from_email=EMAIL_HOST_USER,
+        recipient_list=['твоя_почта@домен.ру'],
+        fail_silently=False
+    )
+    return Response({'message': 'Письмо отправлено (или попытка была)'})
 
 @permission_classes([AllowAny])
 class APIUserCreate(APIView):
