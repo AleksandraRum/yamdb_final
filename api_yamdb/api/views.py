@@ -76,6 +76,14 @@ def send_confirmation_code_to_user_email(username):
 @permission_classes([AllowAny])
 def debug_send_email(request):
     try:
+        print("Yandex config:")
+        print("EMAIL_HOST:", EMAIL_HOST)
+        print("EMAIL_PORT:", EMAIL_PORT)
+        print("EMAIL_USER:", EMAIL_HOST_USER)
+        print("EMAIL_PASSWORD:", EMAIL_HOST_PASSWORD[:4] + '***')
+        print("EMAIL_USE_SSL:", EMAIL_USE_SSL)
+        print("EMAIL_USE_TLS:", EMAIL_USE_TLS)
+
         send_mail(
             subject='Тестовое письмо',
             message='Если ты читаешь это — SMTP работает!',
@@ -83,11 +91,9 @@ def debug_send_email(request):
             recipient_list=['alexrumyantceva@gmail.com'],
             fail_silently=False
         )
-        print("DEBUG EMAIL CONFIG:")
-        print("EMAIL_HOST_USER:", settings.EMAIL_HOST_USER)
-        print("EMAIL_HOST:", settings.EMAIL_HOST)
         return Response({'message': 'Письмо отправлено (или попытка была)'})
     except Exception as e:
+        print("❌ Ошибка отправки:", str(e))
         return Response({'error': str(e)})
 
 @permission_classes([AllowAny])
