@@ -1,4 +1,7 @@
 from django.urls import include, path
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 from .views import debug_send_email
 from rest_framework.routers import SimpleRouter
 
@@ -41,6 +44,17 @@ router_v1.register(
     basename='comments'
 )
 
+schema_view = get_schema_view(
+   openapi.Info(
+      title="YaMDb API",
+      default_version='v1',
+      description="Документация для API YaMDb",
+      contact=openapi.Contact(email="youremail@example.com"),
+   ),
+   public=True,
+   permission_classes=[permissions.AllowAny],
+)
+
 VERSION_PARAM = 'api/v1'
 
 auth_patterns = [
@@ -55,4 +69,9 @@ urlpatterns = [
 
 urlpatterns += [
     path(f'{VERSION_PARAM}/debug-email/', debug_send_email),
+]
+
+urlpatterns += [
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
