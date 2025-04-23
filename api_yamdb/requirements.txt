@@ -13,3 +13,4 @@ psycopg2-binary==2.9.9
 pytz>=2021.3,<2025
 sqlparse==0.3.1 
 whitenoise==6.6.0
+drf_yasg
