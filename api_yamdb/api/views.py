@@ -14,30 +14,18 @@ from rest_framework_simplejwt.tokens import AccessToken
 from reviews.models import Category, Genre, Review, Title
 from users.models import User
 
-from api_yamdb.settings import (
-    EMAIL_HOST,
-    EMAIL_HOST_PASSWORD,
-    EMAIL_HOST_USER,
-    EMAIL_PORT,
-    EMAIL_USE_SSL,
-    EMAIL_USE_TLS,
-)
+from api_yamdb.settings import (EMAIL_HOST, EMAIL_HOST_PASSWORD,
+                                EMAIL_HOST_USER, EMAIL_PORT, EMAIL_USE_SSL,
+                                EMAIL_USE_TLS)
 
 from .filters import TitleFilter
 from .mixins import CreateListDestroyViewSet
 from .permissions import IsAdmin, IsAdminOrReadOnly, IsAuthorOrAdminOrModer
-from .serializers import (
-    AdminActionsSerializer,
-    CategorySerializer,
-    CommentSerializer,
-    GenreSerializer,
-    GetTokenSerializer,
-    RegistrationSerializer,
-    ReviewSerializer,
-    TitleReadSerializer,
-    TitleSerializer,
-    UserDataSerializer,
-)
+from .serializers import (AdminActionsSerializer, CategorySerializer,
+                          CommentSerializer, GenreSerializer,
+                          GetTokenSerializer, RegistrationSerializer,
+                          ReviewSerializer, TitleReadSerializer,
+                          TitleSerializer, UserDataSerializer)
 
 
 class CategoryViewSet(CreateListDestroyViewSet):

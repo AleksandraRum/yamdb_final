@@ -53,6 +53,7 @@ class Title(models.Model):
         help_text="Введите год выпуска",
         validators=[validate_year],
         blank=True,
+        null=True,
     )
     description = models.TextField(
         verbose_name="Описание",

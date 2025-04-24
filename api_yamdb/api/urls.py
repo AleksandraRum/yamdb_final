@@ -4,17 +4,9 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from rest_framework.routers import SimpleRouter
 
-from .views import (
-    AdminViewSet,
-    APITokenCreate,
-    APIUserCreate,
-    CategoryViewSet,
-    CommentViewSet,
-    GenreViewSet,
-    ReviewViewSet,
-    TitleViewSet,
-    debug_send_email,
-)
+from .views import (AdminViewSet, APITokenCreate, APIUserCreate,
+                    CategoryViewSet, CommentViewSet, GenreViewSet,
+                    ReviewViewSet, TitleViewSet, debug_send_email)
 
 router_v1 = SimpleRouter()
 
