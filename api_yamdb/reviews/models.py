@@ -9,10 +9,15 @@ User = get_user_model()
 
 class Category(models.Model):
     name = models.CharField(
-        max_length=200, verbose_name="Категория", help_text="Выберите категорию"
+        max_length=200,
+        verbose_name="Категория",
+        help_text="Выберите категорию"
     )
     slug = models.SlugField(
-        max_length=50, unique=True, verbose_name="Слаг", help_text="Укажите слаг"
+        max_length=50,
+        unique=True,
+        verbose_name="Слаг",
+        help_text="Укажите слаг"
     )
 
     class Meta:
@@ -29,7 +34,10 @@ class Genre(models.Model):
         max_length=200, verbose_name="Жанр", help_text="Название жанра"
     )
     slug = models.SlugField(
-        max_length=50, unique=True, verbose_name="Слаг", help_text="Укажите слаг"
+        max_length=50,
+        unique=True,
+        verbose_name="Слаг",
+        help_text="Укажите слаг"
     )
 
     class Meta:
@@ -63,7 +71,10 @@ class Title(models.Model):
         blank=True,
     )
     genre = models.ManyToManyField(
-        Genre, related_name="titles", verbose_name="Жанр", help_text="Укажите жанр"
+        Genre,
+        related_name="titles",
+        verbose_name="Жанр",
+        help_text="Укажите жанр",
     )
     category = models.ForeignKey(
         Category,

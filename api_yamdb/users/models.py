@@ -43,7 +43,8 @@ class User(AbstractUser):
 
     bio = models.TextField("Биография", blank=True)
 
-    role = models.CharField("Роль", max_length=10, choices=ROLES, default="user")
+    role = models.CharField(
+        "Роль", max_length=10, choices=ROLES, default="user")
 
     REQUIRED_FIELDS = ["email"]
 
@@ -52,7 +53,8 @@ class User(AbstractUser):
     class Meta:
         ordering = ["id"]
         constraints = [
-            models.UniqueConstraint(fields=["email", "username"], name="unique_auth"),
+            models.UniqueConstraint(fields=["email", "username"],
+                                    name="unique_auth"),
         ]
         verbose_name = "Пользователь"
         verbose_name_plural = "Пользователи"
