@@ -48,9 +48,9 @@ urlpatterns = [
     path(f"{VERSION_PARAM}/auth/", include(auth_patterns)),
 ]
 
-urlpatterns += [
-    path(f"{VERSION_PARAM}/debug-email/", debug_send_email),
-]
+# urlpatterns += [
+#     path(f"{VERSION_PARAM}/debug-email/", debug_send_email),
+# ]
 
 urlpatterns += [
     path(
@@ -58,7 +58,9 @@ urlpatterns += [
         schema_view.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
-    path("redoc/", schema_view.with_ui("redoc",
-                                       cache_timeout=0),
-                                       name="schema-redoc"),
+    path(
+        "redoc/",
+        schema_view.with_ui("redoc", cache_timeout=0),
+        name="schema-redoc"
+    ),
 ]

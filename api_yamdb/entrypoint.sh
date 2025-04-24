@@ -4,6 +4,7 @@ echo "Collecting static files..."
 python manage.py collectstatic --noinput
 
 echo "Running database migrations..."
+python manage.py makemigrations --noinput
 python manage.py migrate --noinput
 
 echo "Creating superuser (if not exists)..."
