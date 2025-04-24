@@ -122,7 +122,8 @@ class APITokenCreate(APIView):
             user, serializer.data["confirmation_code"]
         ):
             return Response(
-                {"token": str(AccessToken.for_user(user))}, status=status.HTTP_200_OK
+                {"token": str(AccessToken.for_user(user))},
+                status=status.HTTP_200_OK
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -147,7 +148,8 @@ class AdminViewSet(viewsets.ModelViewSet):
             serializer = self.get_serializer(user)
             return Response(serializer.data)
         if request.method == "PATCH":
-            serializer = self.get_serializer(user, data=request.data, partial=user)
+            serializer = self.get_serializer(
+                user, data=request.data, partial=user)
             serializer.is_valid(raise_exception=True)
             serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)

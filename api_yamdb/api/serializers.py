@@ -84,7 +84,12 @@ class AdminActionsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("username", "email", "first_name", "last_name", "bio", "role")
+        fields = ("username",
+                  "email",
+                  "first_name",
+                  "last_name",
+                  "bio",
+                  "role")
 
     def validate_username(self, value):
         if value == "me":
@@ -114,7 +119,8 @@ class UserDataSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
     review = serializers.SlugRelatedField(read_only=True, slug_field="text")
-    author = serializers.SlugRelatedField(read_only=True, slug_field="username")
+    author = serializers.SlugRelatedField(read_only=True,
+                                          slug_field="username")
 
     class Meta:
         fields = "__all__"
@@ -123,7 +129,8 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class ReviewSerializer(serializers.ModelSerializer):
     title = serializers.SlugRelatedField(read_only=True, slug_field="name")
-    author = serializers.SlugRelatedField(read_only=True, slug_field="username")
+    author = serializers.SlugRelatedField(read_only=True,
+                                          slug_field="username")
 
     def validate(self, data):
         id = self.context.get("view").kwargs.get("title_id")
