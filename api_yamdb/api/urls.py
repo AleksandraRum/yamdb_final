@@ -48,10 +48,6 @@ urlpatterns = [
     path(f"{VERSION_PARAM}/auth/", include(auth_patterns)),
 ]
 
-# urlpatterns += [
-#     path(f"{VERSION_PARAM}/debug-email/", debug_send_email),
-# ]
-
 urlpatterns += [
     path(
         "swagger/",

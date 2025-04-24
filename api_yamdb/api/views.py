@@ -1,4 +1,3 @@
-# from django.conf import settings
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -13,8 +12,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import AccessToken
 from reviews.models import Category, Genre, Review, Title
 from users.models import User
-
-from api_yamdb.settings import (EMAIL_HOST_USER)       
+from api_yamdb.settings import EMAIL_HOST_USER
 
 from .filters import TitleFilter
 from .mixins import CreateListDestroyViewSet
@@ -67,33 +65,6 @@ def send_confirmation_code_to_user_email(username):
         [email],
         fail_silently=False,
     )
-    # print(f"📧 EMAIL_HOST_USER: {EMAIL_HOST_USER}")
-    # print(f"🔑 EMAIL_HOST_PASSWORD: {EMAIL_HOST_PASSWORD}")
-
-
-# @api_view(["GET"])
-# @permission_classes([AllowAny])
-# def debug_send_email(request):
-#     try:
-#         print("Yandex config:")
-#         print("EMAIL_HOST:", EMAIL_HOST)
-#         print("EMAIL_PORT:", EMAIL_PORT)
-#         print("EMAIL_USER:", EMAIL_HOST_USER)
-#         print("EMAIL_PASSWORD:", EMAIL_HOST_PASSWORD[:4] + "***")
-#         print("EMAIL_USE_SSL:", EMAIL_USE_SSL)
-#         print("EMAIL_USE_TLS:", EMAIL_USE_TLS)
-
-#         send_mail(
-#             subject="Тестовое письмо",
-#             message="Если ты читаешь это — SMTP работает!",
-#             from_email=EMAIL_HOST_USER,
-#             recipient_list=["alexrumyantceva@gmail.com"],
-#             fail_silently=False,
-#         )
-#         return Response({"message": "Письмо отправлено (или попытка была)"})
-#     except Exception as e:
-#         print("❌ Ошибка отправки:", str(e))
-#         return Response({"error": str(e)})
 
 
 @permission_classes([AllowAny])
