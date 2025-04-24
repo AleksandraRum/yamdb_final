@@ -49,7 +49,6 @@ schema_view = get_schema_view(
         title="YaMDb API",
         default_version='v1',
         description="Документация для API YaMDb",
-        contact=openapi.Contact(email="youremail@example.com"),
     ),
     public=True,
     permission_classes=[permissions.AllowAny],
@@ -72,8 +71,9 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('swagger/', 
-         schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', 
-         schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('swagger/',
+        schema_view.with_ui('swagger', cache_timeout=0), 
+        name='schema-swagger-ui'),
+    path('redoc/',
+        schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
