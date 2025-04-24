@@ -6,7 +6,7 @@ from rest_framework.routers import SimpleRouter
 
 from .views import (AdminViewSet, APITokenCreate, APIUserCreate,
                     CategoryViewSet, CommentViewSet, GenreViewSet,
-                    ReviewViewSet, TitleViewSet, debug_send_email)
+                    ReviewViewSet, TitleViewSet)
 
 router_v1 = SimpleRouter()
 
