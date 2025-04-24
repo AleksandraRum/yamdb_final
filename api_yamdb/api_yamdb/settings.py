@@ -67,9 +67,12 @@ DATABASES = {
         "NAME": os.getenv("DB_NAME", default="yamdb_db"),
         "USER": os.getenv("POSTGRES_USER", default="user"),
         "PASSWORD": os.getenv(
-            "POSTGRES_PASSWORD", default="fKYZwDg7UalmlwbjB891XYSGiE1a9mQN"
+            "POSTGRES_PASSWORD"
+            # default="fKYZwDg7UalmlwbjB891XYSGiE1a9mQN"
         ),
-        "HOST": os.getenv("DB_HOST", default="dpg-d0305o3e5dus73c7gfkg-a"),
+        "HOST": os.getenv("DB_HOST"
+                        #   default="dpg-d0305o3e5dus73c7gfkg-a"
+                         ),
         "PORT": os.getenv("DB_PORT", default=5432),
     }
 }
@@ -129,8 +132,10 @@ EMAIL_BACKEND = os.getenv(
 )
 EMAIL_HOST = os.getenv("EMAIL_HOST", default="smtp.yandex.ru")
 EMAIL_PORT = int(os.getenv("EMAIL_PORT", default=587))
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", default="testSendCode@yandex.ru")
-EMAIL_HOST_PASSWORD = "kzgabvxkndurbnfu"
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+# EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", default="testSendCode@yandex.ru")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+                                # "kzgabvxkndurbnfu"
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 SERVER_EMAIL = EMAIL_HOST_USER
