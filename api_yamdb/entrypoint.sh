@@ -24,7 +24,7 @@ if username and email and password:
     else:
         print("Superuser already exists.")
 else:
-    print("⚠️ Missing superuser env vars, skipping.")
+    print("Missing superuser env vars, skipping.")
 END
 
 echo "Starting Gunicorn..."

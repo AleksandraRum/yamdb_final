@@ -9,12 +9,13 @@ services:
     env_file:
       - ./.env
     environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       - TZ=UTC
       - PGTZ=UTC
   web:
     build:
-      #context: ../api_yamdb # или путь к папке, где лежит manage.py и settings.py
-     # dockerfile: Dockerfile
     image: aleksandrarum/infra_web:latest
     restart: always
     volumes:
