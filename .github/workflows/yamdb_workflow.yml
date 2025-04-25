@@ -7,6 +7,15 @@ jobs:
    
     runs-on: ubuntu-latest
 
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      DB_NAME: postgres
+      DB_HOST: 127.0.0.1
+      DB_PORT: 5432
+      DB_ENGINE: django.db.backends.postgresql
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
     steps:
    
     - uses: actions/checkout@v3
