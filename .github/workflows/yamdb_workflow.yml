@@ -68,8 +68,16 @@ jobs:
     steps:
       - name: Wait for site and check status
         run: |
-          sleep 10
-          curl -f https://yamdb-final.onrender.com/admin/login/ || exit 1
+          for i in {1..10}; do
+            if curl -f https://yamdb-final.onrender.com/admin/login/; then
+            echo "Site is up!"
+            exit 0
+            fi
+            echo "Site not available yet. Retrying in 10 seconds..."
+            sleep 10
+          done
+          echo "Site did not respond in time." >&2
+          exit 1
 
   send_message:
     runs-on: ubuntu-latest
